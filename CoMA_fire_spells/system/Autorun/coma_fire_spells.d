@@ -522,14 +522,14 @@ func void b_givetradeinv_tengral(var c_npc slf) {
         createinvitems(slf, itru_trade_firebolt, 1);
         createinvitems(slf, itru_trade_instantfireball, 1);
         tengral_runesgiven_chapter_2 = true;
-    }
+    };
     if ((kapitel >= 3) && (tengral_runesgiven_chapter_3 == false)) {
         createinvitems(slf, itru_trade_firestorm, 1);
         tengral_runesgiven_chapter_3 = true;
-    }
+    };
     if ((kapitel >= 4) && (tengral_runesgiven_chapter_4 == false)) {
         createinvitems(slf, itru_trade_chargefireball, 1);
         createinvitems(slf, itru_trade_harmundead, 1);
         tengral_runesgiven_chapter_4 = true;
-    }
+    };
 };
