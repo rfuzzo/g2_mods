@@ -7,6 +7,10 @@
 
 A simple mod that adds fire scroll transcribing and some fire runes to Chronicles of Myrtana: Archolos. Only Engish language is supported for now.
 
+### Requirements
+
+- Union
+
 ### Installation
 
 - Download the zip file
