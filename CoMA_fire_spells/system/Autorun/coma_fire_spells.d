@@ -283,10 +283,10 @@ func void pc_itsc_thunderstorm_info() {
 };
 
 //////////////////////////////////////////////////////////
-// itsc_harmundead
+// itsc_paldestroyevil
 
-instance recipe_itsc_harmundead(c_recipe) {
-    recipeitem = itsc_harmundead /*34688*/;
+instance recipe_itsc_paldestroyevil(c_recipe) {
+    recipeitem = itsc_paldestroyevil /*34688*/;
     mintalent = 1;
     totalrequired = 3;
     requireditem = recipeitem;
@@ -295,29 +295,29 @@ instance recipe_itsc_harmundead(c_recipe) {
     requireditem[1] = itcr_scroll /*35988*/;
     requireditemamount[1] = 1;
     requireditem[2] = itcr_magicore_powdered /*35989*/;
-    requireditemamount[2] = 35;
+    requireditemamount[2] = 25;
 };
 
-instance pc_itsc_harmundead(c_info) {
+instance pc_itsc_paldestroyevil(c_info) {
     nr = 10331;
     npc = pc_hero /*50091*/;
-    condition = pc_itsc_harmundead_condition;
-    information = pc_itsc_harmundead_info;
+    condition = pc_itsc_paldestroyevil_condition;
+    information = pc_itsc_paldestroyevil_info;
     permanent = true;
     description = name_spl_destroyundead;
 };
 
-func int pc_itsc_harmundead_condition() {
+func int pc_itsc_paldestroyevil_condition() {
     if (((player_mobsi_production == mobsi_scroll_writing) && (scrollwriting_mode == 1)) && (npc_gettalentskill(hero, npc_talent_scrollwriting) == true)) {
-        if (npc_hasitems(self, itsc_harmundead) > 0) {
+        if (npc_hasitems(self, itsc_paldestroyevil) > 0) {
             return true;
         };
     };
 };
 
-func void pc_itsc_harmundead_info() {
-    scroll_writing_instance = recipe_itsc_harmundead /*38153*/;
-    scroll_writing_info = pc_itsc_harmundead /*47822*/;
+func void pc_itsc_paldestroyevil_info() {
+    scroll_writing_instance = recipe_itsc_paldestroyevil /*38153*/;
+    scroll_writing_info = pc_itsc_paldestroyevil /*47822*/;
     pc_scroll_writing_checkamountchoices();
 };
 
@@ -479,7 +479,7 @@ func void craftingview_setuprecipesarray() {
     scrollrecipeinstance[29] = recipe_itsc_firewave /*38152*/;
     // MOD neutral
     scrollrecipeinstance[30] = recipe_itsc_thunderstorm /*38152*/;
-    scrollrecipeinstance[31] = recipe_itsc_harmundead /*38152*/;
+    scrollrecipeinstance[31] = recipe_itsc_paldestroyevil /*38152*/;
     scrollrecipeinstance[32] = recipe_itsc_shrink /*38152*/;
 };
 
