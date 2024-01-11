@@ -371,6 +371,8 @@ const int value_ru_trade_chargefireball = 2500;
 
 const string descrune_instantfireball = "Circle: 2 | Fire spell";
 
+const int spl_cost_firebolt = 3;
+//const int spl_damage_firebolt = 25;
 instance itru_trade_firebolt(c_item) {
     name = name_spl_firebolt;
     mainflag = item_kat_rune;
@@ -392,6 +394,7 @@ instance itru_trade_firebolt(c_item) {
     count[5] = value;
 };
 
+const int spl_cost_instantfireball = 11; // 15
 instance itru_trade_instantfireball(c_item) {
     name = name_spl_instantfireball;
     mainflag = item_kat_rune;
@@ -413,6 +416,7 @@ instance itru_trade_instantfireball(c_item) {
     count[5] = value;
 };
 
+const int spl_cost_instantfirestorm = 15; // 25
 instance itru_trade_firestorm(c_item) {
     name = name_spl_firestorm;
     mainflag = item_kat_rune;
@@ -434,6 +438,14 @@ instance itru_trade_firestorm(c_item) {
     count[5] = value;
 };
 
+// invest spells
+// windfist             20-80   75-300  3.75    
+// thunderball          25-100  100-400 4
+// charge fireball      30-120  125-500  4.2
+
+const int step_chargefireball = 50;
+const int spl_cost_chargefireball = 200;
+const int spl_damage_chargefireball = 150;
 instance itru_trade_chargefireball(c_item) {
     name = name_spl_chargefireball;
     mainflag = item_kat_rune;
@@ -459,6 +471,11 @@ instance itru_trade_chargefireball(c_item) {
     count[5] = value;
 };
 
+// pyrokinesis          50-200  75-400  2
+//const int step_firestorm = 50;
+//const int spl_cost_firestorm = 200;
+const int spl_damage_firestorm = 125; // 75
+
 //////////////////////////////////////////////////////////
 // OVERRIDES
 //////////////////////////////////////////////////////////
@@ -470,14 +487,12 @@ var int scrollrecipeinstance[33];
 func void craftingview_setuprecipesarray() {
     craftingview_setuprecipesarray_old();
 
-    // MOD fire
     scrollrecipeinstance[24] = recipe_itsc_firebolt /*38152*/;
     scrollrecipeinstance[25] = recipe_itsc_instantfireball /*38152*/;
     scrollrecipeinstance[26] = recipe_itsc_firestorm /*38152*/;
     scrollrecipeinstance[27] = recipe_itsc_chargefireball /*38152*/;
     scrollrecipeinstance[28] = recipe_itsc_pyrokinesis /*38152*/;
     scrollrecipeinstance[29] = recipe_itsc_firewave /*38152*/;
-    // MOD neutral
     scrollrecipeinstance[30] = recipe_itsc_thunderstorm /*38152*/;
     scrollrecipeinstance[31] = recipe_itsc_paldestroyevil /*38152*/;
     scrollrecipeinstance[32] = recipe_itsc_shrink /*38152*/;
