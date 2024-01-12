@@ -1,9 +1,43 @@
 //////////////////////////////////////////////////////////
 // CoMA - Fire Spells mod
 // by rfuzzo
-// v0.1.1
+// v0.2
 // for Chronicles of Myrtana: Archolos v1.2.11
 //////////////////////////////////////////////////////////
+
+/*
+Changes
+- Adds recipes for transcribing fire scrolls:
+    - firebolt
+    - fireball
+    - small firestorm
+    - large fireball
+    - large firestorm
+    - firewave
+- Adds recipes for transcribing other scrolls:
+    - thunderstorm
+    - destroy evil
+    - shrink
+
+- Adds runes to traders
+    - tengral
+        - firebolt (ch2)
+        - fireball (ch2)
+        - small firestorm  (ch3)
+        - large fireball  (ch4) 
+        - destroy evil  (ch4)
+    - astronomer
+        - sleep  (ch3)
+
+- Tweaks stats for fire spells
+    - spl_cost_firebolt         = 3;    // 5    // lower to be better than zap
+    - spl_cost_instantfireball  = 11;   // 15   // lower to be similar to icelance
+    - spl_cost_instantfirestorm = 20;   // 25   // lower to be slightly higher than icelance
+    - step_chargefireball       = 50;   // 40   // lower to be slightly better than thunderball
+    - spl_cost_chargefireball   = 200;  // 160  // fix to 4 * step_chargefireball
+    - spl_damage_chargefireball = 150;  // 75   // make damage much higher to be usefull for a tier IV spell
+    - spl_damage_firestorm      = 125;  // 75   // make damage much higher to be usefull for a tier IV spell
+*/
 
 //////////////////////////////////////////////////////////
 // Scrolls
@@ -371,7 +405,7 @@ const int value_ru_trade_chargefireball = 2500;
 
 const string descrune_instantfireball = "Circle: 2 | Fire spell";
 
-const int spl_cost_firebolt = 3;
+const int spl_cost_firebolt = 3; // 5
 //const int spl_damage_firebolt = 25;
 instance itru_trade_firebolt(c_item) {
     name = name_spl_firebolt;
@@ -443,9 +477,9 @@ instance itru_trade_firestorm(c_item) {
 // thunderball          25-100  100-400 4
 // charge fireball      30-120  125-500  4.2
 
-const int step_chargefireball = 50;
-const int spl_cost_chargefireball = 200;
-const int spl_damage_chargefireball = 150;
+const int step_chargefireball = 50;         // 40
+const int spl_cost_chargefireball = 200;    // 160
+const int spl_damage_chargefireball = 150;  // 75
 instance itru_trade_chargefireball(c_item) {
     name = name_spl_chargefireball;
     mainflag = item_kat_rune;
@@ -546,5 +580,14 @@ func void b_givetradeinv_tengral(var c_npc slf) {
         createinvitems(slf, itru_trade_chargefireball, 1);
         createinvitems(slf, itru_trade_harmundead, 1);
         tengral_runesgiven_chapter_4 = true;
+    };
+};
+var int astronomer_runesgiven_chapter_3;
+func void b_givetradeinv_astronomer(var c_npc slf) {
+    b_givetradeinv_astronomer_old(slf);
+
+    if ((kapitel >= 3) && (astronomer_runesgiven_chapter_3 == false)) {
+        createinvitems(slf, itru_trade_sleep, 1);
+        astronomer_runesgiven_chapter_3 = true;
     };
 };
