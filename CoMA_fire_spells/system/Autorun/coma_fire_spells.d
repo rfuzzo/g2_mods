@@ -40,6 +40,33 @@ Changes
 */
 
 //////////////////////////////////////////////////////////
+// Stats
+//////////////////////////////////////////////////////////
+
+const string descrune_instantfireball = "Circle: 2 | Fire spell";
+
+// invest spells
+// windfist             20-80   75-300  3.75    
+// thunderball          25-100  100-400 4
+// charge fireball      30-120  125-500  4.2
+
+const int spl_cost_firebolt         = 3;    // 5
+//const int spl_damage_firebolt     = 25;
+
+const int spl_cost_instantfireball  = 11;   // 15
+
+const int spl_cost_instantfirestorm = 20;   // 25
+
+const int step_chargefireball       = 50;   // 40
+const int spl_cost_chargefireball   = 200;  // 160
+const int spl_damage_chargefireball = 150;  // 75
+
+//const int step_firestorm          = 50;
+//const int spl_cost_firestorm      = 200;
+const int spl_damage_firestorm      = 125;  // 75
+
+
+//////////////////////////////////////////////////////////
 // Scrolls
 //////////////////////////////////////////////////////////
 
@@ -403,10 +430,6 @@ const int value_ru_trade_instantfireball = 700;
 const int value_ru_trade_firestorm = 1400;
 const int value_ru_trade_chargefireball = 2500;
 
-const string descrune_instantfireball = "Circle: 2 | Fire spell";
-
-const int spl_cost_firebolt = 3; // 5
-//const int spl_damage_firebolt = 25;
 instance itru_trade_firebolt(c_item) {
     name = name_spl_firebolt;
     mainflag = item_kat_rune;
@@ -428,7 +451,6 @@ instance itru_trade_firebolt(c_item) {
     count[5] = value;
 };
 
-const int spl_cost_instantfireball = 11; // 15
 instance itru_trade_instantfireball(c_item) {
     name = name_spl_instantfireball;
     mainflag = item_kat_rune;
@@ -450,7 +472,6 @@ instance itru_trade_instantfireball(c_item) {
     count[5] = value;
 };
 
-const int spl_cost_instantfirestorm = 15; // 25
 instance itru_trade_firestorm(c_item) {
     name = name_spl_firestorm;
     mainflag = item_kat_rune;
@@ -472,14 +493,6 @@ instance itru_trade_firestorm(c_item) {
     count[5] = value;
 };
 
-// invest spells
-// windfist             20-80   75-300  3.75    
-// thunderball          25-100  100-400 4
-// charge fireball      30-120  125-500  4.2
-
-const int step_chargefireball = 50;         // 40
-const int spl_cost_chargefireball = 200;    // 160
-const int spl_damage_chargefireball = 150;  // 75
 instance itru_trade_chargefireball(c_item) {
     name = name_spl_chargefireball;
     mainflag = item_kat_rune;
@@ -504,11 +517,6 @@ instance itru_trade_chargefireball(c_item) {
     text[5] = name_value;
     count[5] = value;
 };
-
-// pyrokinesis          50-200  75-400  2
-//const int step_firestorm = 50;
-//const int spl_cost_firestorm = 200;
-const int spl_damage_firestorm = 125; // 75
 
 //////////////////////////////////////////////////////////
 // OVERRIDES
